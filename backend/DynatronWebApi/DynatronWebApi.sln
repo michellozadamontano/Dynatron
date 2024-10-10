@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynatronWebApi", "DynatronWebApi\DynatronWebApi.csproj", "{C4AF3682-8148-4F87-AAA8-17258708E0E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynatronWebApi.Test", "DynatronWebApi.Test\DynatronWebApi.Test.csproj", "{FDCF1227-98AA-4092-838A-2B54B9A11D89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4AF3682-8148-4F87-AAA8-17258708E0E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4AF3682-8148-4F87-AAA8-17258708E0E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4AF3682-8148-4F87-AAA8-17258708E0E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4AF3682-8148-4F87-AAA8-17258708E0E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDCF1227-98AA-4092-838A-2B54B9A11D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDCF1227-98AA-4092-838A-2B54B9A11D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDCF1227-98AA-4092-838A-2B54B9A11D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDCF1227-98AA-4092-838A-2B54B9A11D89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14EC6CD7-DFAA-42BA-A375-90CF4860C9F2}
+	EndGlobalSection
+EndGlobal
