@@ -1,0 +1,118 @@
+<div class="p-6 bg-white rounded-lg shadow-lg">
+  <h2 class="text-xl font-semibold mb-4">
+    {{ data ? "Edit Customer" : "Add Customer" }}
+  </h2>
+  <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+      <label class="block text-gray-700">
+        First Name <span class="text-red-500">*</span>
+      </label>
+      <input
+        class="w-full px-3 py-2 border rounded 
+          {{
+          customerForm.get('firstName') &&
+          customerForm.get('firstName')!.invalid &&
+          (customerForm.get('firstName')!.touched ||
+            customerForm.get('firstName')!.dirty)
+            ? 'border-red-500'
+            : 'border-gray-300'
+        }}"
+        formControlName="firstName"
+        type="text"
+        placeholder="Enter first name"
+      />
+      <div
+        *ngIf="
+          customerForm.get('firstName')?.invalid &&
+          (customerForm.get('firstName')?.touched ||
+            customerForm.get('firstName')?.dirty)
+        "
+        class="text-red-500 text-sm mt-1"
+      >
+        First name is required.
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700">
+        Last Name <span class="text-red-500">*</span>
+      </label>
+      <input
+        class="w-full px-3 py-2 border rounded 
+          {{
+          customerForm.get('lastName') &&
+          customerForm.get('lastName')!.invalid &&
+          (customerForm.get('lastName')!.touched ||
+            customerForm.get('lastName')!.dirty)
+            ? 'border-red-500'
+            : 'border-gray-300'
+        }}"
+        formControlName="lastName"
+        type="text"
+        placeholder="Enter last name"
+      />
+      <div
+        *ngIf="
+          customerForm.get('lastName')?.invalid &&
+          (customerForm.get('lastName')?.touched ||
+            customerForm.get('lastName')?.dirty)
+        "
+        class="text-red-500 text-sm mt-1"
+      >
+        Last name is required.
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700">
+        Email <span class="text-red-500">*</span>
+      </label>
+      <input
+        class="w-full px-3 py-2 border rounded 
+          {{
+          customerForm.get('email') &&
+          customerForm.get('email')!.invalid &&
+          (customerForm.get('email')!.touched ||
+            customerForm.get('email')!.dirty)
+            ? 'border-red-500'
+            : 'border-gray-300'
+        }}"
+        formControlName="email"
+        type="email"
+        placeholder="Enter email"
+      />
+      <div
+        *ngIf="
+          customerForm.get('email')?.invalid &&
+          (customerForm.get('email')?.touched ||
+            customerForm.get('email')?.dirty)
+        "
+        class="text-red-500 text-sm mt-1"
+      >
+        <ng-container *ngIf="customerForm.get('email')?.errors?.['required']"
+          >Email is required.</ng-container
+        >
+        <ng-container *ngIf="customerForm.get('email')?.errors?.['email']"
+          >Email must be a valid email address.</ng-container
+        >
+      </div>
+    </div>
+
+    <div class="flex justify-end">
+      <button
+        type="button"
+        class="mr-4 bg-gray-400 hover:bg-gray-500 text-white py-2 px-4 rounded"
+        (click)="onCancel()"
+      >
+        Cancel
+      </button>
+      <button
+        type="submit"
+        class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+        [disabled]="!customerForm.valid"
+      >
+        {{ data ? "Update" : "Add" }}
+      </button>
+    </div>
+  </form>
+</div>
