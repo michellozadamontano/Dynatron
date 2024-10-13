@@ -77,6 +77,10 @@ export class CustomerListComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
+  public getDialog(): MatDialog {
+    return this.dialog;
+  }
+
   /**
    * Opens the add customer dialog and dispatches the createCustomer action
    * when the dialog is closed with a valid customer object.
