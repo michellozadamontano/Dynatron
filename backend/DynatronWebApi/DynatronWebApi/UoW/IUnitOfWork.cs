@@ -14,7 +14,7 @@ namespace DynatronWebApi.UoW
         ///     Commit method
         /// </summary>
         /// <returns></returns>
-        Task<int> Commit();
+        Task<int> Commit(CancellationToken cancellationToken = default);
 
         /// <summary>
         ///     Rollback method

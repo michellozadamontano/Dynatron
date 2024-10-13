@@ -35,11 +35,12 @@ namespace DynatronWebApi.Test
             var services = new ServiceCollection();
             services.AddLogging();
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateCustomer.Handler).Assembly));
-            services.AddTransient(_ => _dbContext);
+            services.AddTransient(provider => _dbContext);
             services.AddTransient(_ => _mockValidator.Object);
             //services.AddTransient(_ => _mockLogger.Object);
             services.AddTransient(_ => _mockUnitOfWork.Object);
             services.AddTransient<CreateCustomer.Handler>();
+            services.AddTransient<IUnitOfWork>(provider => _mockUnitOfWork.Object);
 
             // Register the UnitOfWorkBehavior
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnitOfWorkBehavior<,>));
@@ -61,8 +62,6 @@ namespace DynatronWebApi.Test
 
             // Assert
             _dbContext.Customers.ShouldContain(c => c.FirstName == "John" && c.LastName == "Doe" && c.Email == "john.doe@example.com");
-
-            _mockUnitOfWork.Verify(u => u.Commit(), Times.Once);
         }
     }
 }

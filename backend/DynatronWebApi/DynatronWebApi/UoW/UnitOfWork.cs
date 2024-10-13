@@ -25,9 +25,9 @@ namespace DynatronWebApi.UoW
         /// <summary>
         ///     Commit method
         /// </summary>
-        public Task<int> Commit()
+        public Task<int> Commit(CancellationToken cancellationToken = default)
         {
-            return context.SaveChangesAsync();
+            return context.SaveChangesAsync(cancellationToken);
         }
     }
 }

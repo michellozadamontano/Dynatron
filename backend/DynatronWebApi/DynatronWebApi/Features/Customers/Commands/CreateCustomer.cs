@@ -47,6 +47,7 @@ namespace DynatronWebApi.Features.Customers.Commands
                 var customer = new Customer(request.FirstName, request.LastName, request.Email);
 
                 await dbContext.Customers.AddAsync(customer, cancellationToken);
+                await dbContext.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;
             }
